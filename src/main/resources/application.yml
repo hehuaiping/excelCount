@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: excel 数据分析
+server:
+  port: 80
