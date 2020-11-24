@@ -3,6 +3,7 @@ package com.nnt.excel.databse;
 import com.nnt.excel.model.Person;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,5 +11,8 @@ import java.util.List;
  */
 @Data
 public class PersonData {
-    private List<Person> personList;
+    /**
+     *  人员数据
+     */
+    public static final List<Person> personList = new ArrayList<>(3600);
 }

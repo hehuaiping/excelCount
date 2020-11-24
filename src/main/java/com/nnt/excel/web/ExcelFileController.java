@@ -17,10 +17,10 @@ import java.lang.management.MonitorInfo;
 @Controller
 public class ExcelFileController {
 
-    @PostMapping("/upload")
+    @PostMapping("/exportExcel")
     @ResponseBody
-    public void upload(@RequestParam("file") MultipartFile file) {
-
+    public void exportExcel() {
+        //
     }
 
     @RequestMapping("/")

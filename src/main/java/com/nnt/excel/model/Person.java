@@ -14,6 +14,8 @@ public class Person {
     private String name;
     @Column("电话")
     private String phone;
-    @Column("住址")
+    @Column("地址")
     private String addr;
+
+    public Person(){}
 }
