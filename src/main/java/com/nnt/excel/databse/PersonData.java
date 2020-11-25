@@ -15,4 +15,8 @@ public class PersonData {
      *  人员数据
      */
     public static final List<Person> personList = new ArrayList<>(3600);
+
+    public static void clean() {
+        personList.clear();
+    }
 }

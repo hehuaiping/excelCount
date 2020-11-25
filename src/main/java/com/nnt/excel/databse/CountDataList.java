@@ -23,13 +23,16 @@ public class CountDataList {
     public static void addCountData(CountData countData, String checkTime, int item) {
         // 如果包含当前检测人数据
         if(countDataMap.containsKey(countData.getId())) {
+            countData.setNumber(CountData.getItem());
             setCheckTime(countDataMap.get(countData.getId()), checkTime, item);
+            return;
         }else {
+            countData.setNumber(CountData.getItem());
             // 没有当前检测人数据
             setCheckTime(countData, checkTime, item);
+            // 放入到Map中
+            countDataMap.put(countData.getId(), countData);
         }
-        // 放入到Map中
-        countDataMap.put(countData.getId(), countData);
     }
 
     private static void setCheckTime(CountData countData, String checkTime, int item) {
@@ -64,5 +67,10 @@ public class CountDataList {
             countDataList.add(dataObject);
         });
         return countDataList;
+    }
+
+    public static void clean() {
+        countDataList.clear();
+        countDataMap.clear();
     }
 }

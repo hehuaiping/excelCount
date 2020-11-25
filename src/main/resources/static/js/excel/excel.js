@@ -7,7 +7,23 @@ $(function(){
         },
         methods:{
             exportExcel() {
-                console.log('导出数据');
+                if(vm.fileList.length == 0) {
+                    alert("请上传相关数据！");
+                    return;
+                }
+                window.open("/exportExcel")
+                //window.location.href = "/exportExcel";
+            },
+            clean() {
+                $.ajax({
+                    type: "GET",
+                    url: "/upload/clearData",
+                    contentType: "application/json",
+                    success: function(r){
+                        vm.fileList = [];
+                        alert(r);
+                    }
+                });
             }
             ,
             handleRemove(file, fileList) {

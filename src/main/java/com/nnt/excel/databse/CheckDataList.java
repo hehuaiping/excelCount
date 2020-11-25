@@ -24,4 +24,8 @@ public class CheckDataList {
         // 第四次检测数据
         add(new ArrayList<>());
     }};
+
+    public static void clean() {
+        checkDataList.forEach(List::clear);
+    }
 }

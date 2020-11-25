@@ -1,6 +1,12 @@
 spring:
   application:
     name: excel 数据分析
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+      additional-paths: src/main/java
 server:
   port: 80
   servlet:

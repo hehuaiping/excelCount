@@ -8,11 +8,19 @@ import jxl.Workbook;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author soulmate
  */
 public class Excel2Model {
+
+    /**
+     * 制表符匹配
+     */
+    public static final Pattern BLANK_PATTERN = Pattern.compile("\\*|\t|\r|\n");
+
     public static <T> List<T> toModel(Workbook excel, Class<T> clazz, int head) throws Exception {
         List<T> list = new ArrayList<>(8);
         // sheet表格
@@ -85,8 +93,19 @@ public class Excel2Model {
      */
     public static void setFieldValueByCell(Object obj, Field field, Object value) throws Exception {
         field.setAccessible(true);
-        field.set(obj, value);
+        field.set(obj, replaceBlank((String)value));
     }
+
+
+    public static String replaceBlank(String str) {
+        String dest = "";
+        if (str!=null) {
+            Matcher m = BLANK_PATTERN.matcher(str);
+            dest = m.replaceAll("");
+        }
+        return dest;
+    }
+
 
     private Excel2Model() {}
 }

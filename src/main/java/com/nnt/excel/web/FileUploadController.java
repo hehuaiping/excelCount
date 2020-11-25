@@ -1,9 +1,9 @@
 package com.nnt.excel.web;
 
 import com.nnt.excel.databse.CheckDataList;
+import com.nnt.excel.databse.CountDataList;
 import com.nnt.excel.databse.PersonData;
 import com.nnt.excel.model.CheckData;
-import com.nnt.excel.model.CountData;
 import com.nnt.excel.model.Person;
 import com.nnt.excel.util.Excel2Model;
 import jxl.Workbook;
@@ -49,5 +49,18 @@ public class FileUploadController {
         System.out.println(list);
         CHECK_DATA_ITEM ++;
         return "";
+    }
+
+    @RequestMapping("/clearData")
+    public String clearData() {
+        PersonData.clean();
+        CountDataList.clean();
+        CheckDataList.clean();
+        resetItem();
+        return "清除成功！";
+    }
+
+    private static void resetItem() {
+        CHECK_DATA_ITEM = 0;
     }
 }
