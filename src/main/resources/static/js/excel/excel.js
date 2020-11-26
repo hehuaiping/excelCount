@@ -7,10 +7,6 @@ $(function(){
         },
         methods:{
             exportExcel() {
-                if(vm.fileList.length == 0) {
-                    alert("请上传相关数据！");
-                    return;
-                }
                 window.open("/exportExcel")
                 //window.location.href = "/exportExcel";
             },

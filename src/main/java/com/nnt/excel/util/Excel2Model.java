@@ -4,6 +4,7 @@ import com.nnt.excel.annotation.Column;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
+import org.springframework.util.StringUtils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -79,7 +80,7 @@ public class Excel2Model {
             if(annotationPresent) {
                 final Column annotation = field.getAnnotation(Column.class);
                 final String value = annotation.value();
-                if(name.equalsIgnoreCase(value)) {
+                if(StringUtils.trimAllWhitespace(name).equalsIgnoreCase(value)) {
                     return field;
                 }
             }

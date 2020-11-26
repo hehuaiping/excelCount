@@ -4,6 +4,7 @@ import com.nnt.excel.databse.CheckDataList;
 import com.nnt.excel.databse.CountDataList;
 import com.nnt.excel.databse.PersonData;
 import com.nnt.excel.model.CheckData;
+import com.nnt.excel.model.CountData;
 import com.nnt.excel.model.Person;
 import com.nnt.excel.util.Excel2Model;
 import jxl.Workbook;
@@ -32,7 +33,6 @@ public class FileUploadController {
         // 人员数据
         final List<Person> list = Excel2Model.toModel(excel, Person.class, 0);
         PersonData.personList.addAll(list);
-        System.out.println(list);
         return "";
     }
 
@@ -46,7 +46,6 @@ public class FileUploadController {
         // 检测数据
         final List<CheckData> list = Excel2Model.toModel(excel, CheckData.class, 1);
         CheckDataList.checkDataList.get(CHECK_DATA_ITEM).addAll(list);
-        System.out.println(list);
         CHECK_DATA_ITEM ++;
         return "";
     }
@@ -62,5 +61,6 @@ public class FileUploadController {
 
     private static void resetItem() {
         CHECK_DATA_ITEM = 0;
+        CountData.reset();
     }
 }

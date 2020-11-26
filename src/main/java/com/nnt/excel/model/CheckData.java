@@ -21,12 +21,12 @@ public class CheckData {
     /**
      * 电话
      */
-    @Column("手机")
+    @Column("电话")
     private String phone;
     /**
      * 身份证号码
      */
-    @Column("身份证")
+    @Column("身份证号")
     private String id;
     /**
      * 创建时间
@@ -38,6 +38,11 @@ public class CheckData {
      */
     @Column("地址")
     private String addr;
+    /**
+     * 地址
+     */
+    @Column("备注")
+    private String remark;
 
     public CheckData(){}
 }

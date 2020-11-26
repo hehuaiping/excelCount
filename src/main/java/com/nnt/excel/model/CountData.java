@@ -78,6 +78,10 @@ public class CountData implements Comparable<CountData>{
         return ITEM ++;
     }
 
+    public static synchronized void reset() {
+        ITEM = 0;
+    }
+
     public CountData() {
 
     }

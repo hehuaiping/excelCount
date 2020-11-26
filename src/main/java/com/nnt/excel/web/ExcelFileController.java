@@ -38,14 +38,15 @@ public class ExcelFileController {
             countData.setId(person.getId());
             countData.setName(person.getName());
             countData.setAddr(person.getAddr());
+
             // 遍历检测数据
-            System.out.println(CheckDataList.checkDataList.size());
             for (int i = 0; i < CheckDataList.checkDataList.size(); i++) {
 
                 for (CheckData checkData : CheckDataList.checkDataList.get(i)) {
                     // 身份数据相同
                     if(person.getId().equals(checkData.getId())) {
                         findFlag = true;
+                        countData.setRemark(checkData.getRemark());
                         countData.setPhone(checkData.getPhone());
                         // 添加到数据统计列表中
                         CountDataList.addCountData(countData, checkData.getCheckTime(), i);
